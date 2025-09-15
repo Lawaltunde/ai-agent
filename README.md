@@ -1,4 +1,4 @@
-# My AI Agent
+# AI Agent
 
 This project is a simple AI agent that uses the Google Gemini model to generate text based on a prompt. It's built with TypeScript and runs on the Bun runtime.
 

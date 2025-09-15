@@ -1,3 +1,20 @@
+const commitMessageInput = z.object({
+  diffSummary: z.string().min(1).describe("A summary of the code changes"),
+});
+
+type CommitMessageInput = z.infer<typeof commitMessageInput>;
+
+async function generateCommitMessage({ diffSummary }: CommitMessageInput) {
+  // Here you could use an AI model to generate a commit message from the diff summary
+  // For now, just return a placeholder
+  return `feat: ${diffSummary}`;
+}
+
+export const generateCommitMessageTool = tool({
+  description: "Generates a commit message from code changes",
+  inputSchema: commitMessageInput,
+  execute: generateCommitMessage,
+});
 import { tool } from "ai";
 import { simpleGit } from "simple-git";
 import { z } from "zod";
